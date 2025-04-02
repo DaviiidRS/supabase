@@ -15,8 +15,12 @@ public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long codigo;
+    @Column(nullable = false)
     private String nombre;
+
+    @Column(length = 10,nullable = false)
     private String telefono;
+
     @ManyToMany
     @JoinTable(
             name="inscripciones",
@@ -26,5 +30,5 @@ public class Estudiante {
     private List<Curso> cursos;
 
     @OneToOne(mappedBy = "monitor")
-    private Curso curso;
+    private Curso cursoMonitor;
 }

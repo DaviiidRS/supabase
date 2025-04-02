@@ -15,8 +15,9 @@ public class Profesor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
+    @Column(nullable = false)
     private String nombre;
+    @Column(length = 10,nullable = false)
     private String telefono;
     @OneToMany(mappedBy = "profesor")
     private List<Curso> cursos;
